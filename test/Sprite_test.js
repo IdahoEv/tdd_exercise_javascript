@@ -35,6 +35,26 @@ describe('Sprite', () => {
       expect(sprite.velocity).to.eql({ x: 0.0, y: 0.0 });      
     });    
 
+    it('sets the rotation with valid arg', () => {
+      const sprite = new Sprite();
+      sprite.rotation = 90;
+      expect(sprite.rotation).to.eql(90);            
+    });
+    it('doesn\'t set the rotation with string arg', () => {
+      const sprite = new Sprite();
+      sprite.rotation = "right angle";
+      expect(sprite.rotation).to.eql(0.0);            
+    });
+    it('simplifies rotations above 360 degrees', () => {
+      const sprite = new Sprite();
+      sprite.rotation = 390;
+      expect(sprite.rotation).to.eql(30);            
+    });
+    it('simplifies rotations below 0 degrees', () => {
+      const sprite = new Sprite();
+      sprite.rotation = -90;
+      expect(sprite.rotation).to.eql(270);            
+    });
 
     
   });

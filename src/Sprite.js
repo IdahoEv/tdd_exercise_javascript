@@ -2,7 +2,7 @@ export default class Sprite {
   constructor() {
     this._position = {x: 0, y:0};
     this._velocity = {x: 0, y:0};
-    this.rotation = 0;
+    this._rotation = 0;
   }
 
   set position(arg){
@@ -30,6 +30,23 @@ export default class Sprite {
       && obj.x 
       && obj.y 
       && typeof(obj.x) == "number" 
-      && typeof(obj.y) == "number"
+      && typeof(obj.y) == "number";
   };
+  
+  set rotation(arg){
+    if(arg && typeof(arg) == "number") {
+      let rot = arg;
+      if(rot > 360) {
+        rot = rot - 360;
+      }
+      if(rot < 0) {
+        rot = rot + 360;
+      }
+      this._rotation = rot;
+    }  
+  };
+  
+  get rotation() {
+    return this._rotation;
+  }
 }
