@@ -6,7 +6,7 @@ export default class Sprite {
   }
 
   set position(arg){
-    if(arg && arg.x && arg.y){
+    if(arg && arg.x && arg.y && typeof(arg.x) == "number" && typeof(arg.y) == "number"){
       this._position = arg;
     }
   };

@@ -13,6 +13,11 @@ describe('Sprite', () => {
       sprite.position = { x: 1.0, z: 2.0 };
       expect(sprite.position).to.eql({ x: 0.0, y: 0.0 });
     });
+    it('doesn\'t set the position if the arguments are strings', () => {
+      const sprite = new Sprite();
+      sprite.position = { x: "hello", y: "number" };
+      expect(sprite.position).to.eql({ x: 0.0, y: 0.0 });      
+    });
     
     it('sets the velocity if the argument is properly formatted', () => {
       const sprite = new Sprite();
