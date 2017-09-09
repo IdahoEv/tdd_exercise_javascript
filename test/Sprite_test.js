@@ -50,6 +50,11 @@ describe('Sprite', () => {
       sprite.rotation = 390;
       expect(sprite.rotation).to.eql(30);            
     });
+    it('simplifies rotations above 720 degrees', () => {
+      const sprite = new Sprite();
+      sprite.rotation = 750;
+      expect(sprite.rotation).to.eql(30);            
+    });    
     it('simplifies rotations below 0 degrees', () => {
       const sprite = new Sprite();
       sprite.rotation = -90;

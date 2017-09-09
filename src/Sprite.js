@@ -35,14 +35,11 @@ export default class Sprite {
   
   set rotation(arg){
     if(arg && typeof(arg) == "number") {
-      let rot = arg;
-      if(rot > 360) {
-        rot = rot - 360;
-      }
-      if(rot < 0) {
+      let rot = arg
+      while(rot < 0) {
         rot = rot + 360;
       }
-      this._rotation = rot;
+      this._rotation = rot % 360;
     }  
   };
   
