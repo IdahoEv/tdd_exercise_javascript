@@ -8,6 +8,22 @@ describe('Sprite', () => {
       sprite.position = { x: 1.0, y: 2.0 };
       expect(sprite.position).to.eql({ x: 1.0, y: 2.0 });
     });
+    it('doesn\'t set the position if the argument contains invalid values', () => {
+      const sprite = new Sprite();
+      sprite.position = { x: 1.0, z: 2.0 };
+      expect(sprite.position).to.eql({ x: 0.0, y: 0.0 });
+    });
+    
+    it('sets the velocity if the argument is properly formatted', () => {
+      const sprite = new Sprite();
+      sprite.velocity = { x: 1.0, y: 2.0 };
+      expect(sprite.velocity).to.eql({ x: 1.0, y: 2.0 });
+    });
+    it('doesn\'t set the velocity if the argument contains invalid values', () => {
+      const sprite = new Sprite();
+      sprite.velocity = { x: 1.0, z: 2.0 };
+      expect(sprite.velocity).to.eql({ x: 0.0, y: 0.0 });
+    });
 
     
   });
