@@ -1,7 +1,18 @@
 import { expect } from 'chai';
 import Sprite from '../src/Sprite';
 
-describe('Sprite', () => {  
+describe('Sprite', () => {
+  describe('Updating the position based on time and velocity', () => {
+    it('Doesn\'t change the position if no time has elapsed', () => {
+      const sprite = new Sprite();
+      sprite.velocity = { x: 1.0, y: 2.0 };
+      expect(sprite.position).to.eql({ x: 0.0, y: 0.0});
+      sprite.updatePosition(0.0);
+      expect(sprite.position).to.eql({ x: 0.0, y: 0.0});        
+    });
+  });
+
+    
   describe('Getting and setting properties', () => {
     it('sets the velocity if the argument is properly formatted', () => {
       const sprite = new Sprite();

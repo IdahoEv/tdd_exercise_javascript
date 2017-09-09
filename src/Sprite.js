@@ -5,6 +5,10 @@ export default class Sprite {
     this._rotation = 0;
   }
 
+  updatePosition(elapsedSeconds){
+        
+  }
+
   set position(arg){
     if(this.isValidObjectWithXY(arg)){
       this._position = arg;
