@@ -6,7 +6,10 @@ export default class Sprite {
   }
 
   updatePosition(elapsedSeconds){
-        
+    this._position = {
+      x: this.velocity.x * elapsedSeconds,
+      y: this.velocity.y * elapsedSeconds
+    }
   }
 
   set position(arg){

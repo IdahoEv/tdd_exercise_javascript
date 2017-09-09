@@ -10,6 +10,14 @@ describe('Sprite', () => {
       sprite.updatePosition(0.0);
       expect(sprite.position).to.eql({ x: 0.0, y: 0.0});        
     });
+    
+    it('Correctly increments the position for 1.0 elapsed seconds', () => {
+      const sprite = new Sprite();
+      sprite.velocity = { x: 1.0, y: 2.0 };
+      expect(sprite.position).to.eql({ x: 0.0, y: 0.0});
+      sprite.updatePosition(1.0);
+      expect(sprite.position).to.eql({ x: 1.0, y: 2.0});        
+    });    
   });
 
     
