@@ -2,6 +2,17 @@ import { expect } from 'chai';
 import Sprite from '../src/Sprite';
 
 describe('Sprite', () => {
+  describe('Getting and setting properties', () => {
+    it('sets the position if the argument is properly formatted', () => {
+      const sprite = new Sprite();
+      sprite.position = { x: 1.0, y: 2.0 };
+      expect(sprite.position).to.eql({ x: 1.0, y: 2.0 });
+    });
+
+    
+  });
+  
+  
   describe('Instantiation', () => {
     
     it('has default x and y coordinates', () => {
