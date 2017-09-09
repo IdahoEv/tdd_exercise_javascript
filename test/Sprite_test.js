@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import Sprite from '../src/Sprite';
 
-describe('Sprite', () => {
+describe('Sprite', () => {  
   describe('Getting and setting properties', () => {
     it('sets the velocity if the argument is properly formatted', () => {
       const sprite = new Sprite();
@@ -59,6 +59,11 @@ describe('Sprite', () => {
       const sprite = new Sprite();
       sprite.rotation = -90;
       expect(sprite.rotation).to.eql(270);            
+    });
+    it('simplifies rotations below -360 degrees', () => {
+      const sprite = new Sprite();
+      sprite.rotation = -420;
+      expect(sprite.rotation).to.eql(300);            
     });
 
     
