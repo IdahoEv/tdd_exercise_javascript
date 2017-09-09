@@ -6,7 +6,7 @@ export default class Sprite {
   }
 
   set position(arg){
-    if(arg && arg.x && arg.y && typeof(arg.x) == "number" && typeof(arg.y) == "number"){
+    if(this.isValidObjectWithXY(arg)){
       this._position = arg;
     }
   };
@@ -14,13 +14,22 @@ export default class Sprite {
   get position(){
     return this._position;
   };
+  
   set velocity(arg){
-    if(arg && arg.x && arg.y && typeof(arg.x) == "number" && typeof(arg.y) == "number"){
+    if(this.isValidObjectWithXY(arg)){
       this._velocity = arg;
     }
   };
   
   get velocity(){
     return this._velocity;
+  };
+  
+  isValidObjectWithXY(obj){
+    return obj 
+      && obj.x 
+      && obj.y 
+      && typeof(obj.x) == "number" 
+      && typeof(obj.y) == "number"
   };
 }
