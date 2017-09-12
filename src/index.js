@@ -1,14 +1,15 @@
 import Sprite from "./Sprite"
 
+
 document.body.onload = () => {
-  document.getElementById('header').innerHTML = "<h1>Sprite Animation Demo</h1>";
+  document.getElementById('header').innerHTML = "<h1>Animation Demo!</h1>";
 
   const canvas = document.getElementById('canvas');
   const context = canvas.getContext('2d');
 
   const image = new Image();
 
-  image.onload = function() {
+  image.onload = () => {
     const sprite = new Sprite(context, image);
     sprite.position = { x: 40, y: 550 };
     sprite.velocity = { x: 35, y: -45 };
@@ -18,5 +19,3 @@ document.body.onload = () => {
 
   image.src = "rocket.png";
 };  
-
-
