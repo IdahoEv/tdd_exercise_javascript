@@ -18,6 +18,20 @@ describe('Sprite', () => {
       sprite.updatePosition(1.0);
       expect(sprite.position).to.eql({ x: 1.0, y: 2.0});        
     });    
+    it('Correctly increments the position with negative velocity components', () => {
+      const sprite = new Sprite();
+      sprite.velocity = { x: -1.5, y: -3.5 };
+      expect(sprite.position).to.eql({ x: 0.0, y: 0.0});
+      sprite.updatePosition(0.5);
+      expect(sprite.position).to.eql({ x: -0.75, y: -1.75});        
+    });    
+    it('Correctly increments the position with nonzero starting point', () => {
+      const sprite = new Sprite();
+      sprite.position = { x: 1.0, y: -3.2 };
+      sprite.velocity = { x: -1.5, y: -3.5 };
+      sprite.updatePosition(0.5);
+      expect(sprite.position).to.eql({ x: 0.25, y: -4.95});
+    });    
   });
 
     
