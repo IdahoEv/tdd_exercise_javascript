@@ -9,13 +9,17 @@ export default class Sprite {
     return this._position;
   }
   set position(arg) {
-    this._position = arg;
+    if(typeof arg == "object" && arg.x  && arg.y ){
+      this._position = arg;
+    }
   }
   get velocity() {
     return this._velocity;
   }
   set velocity(arg) {
-    this._velocity = arg;
+    if(typeof arg == "object" && arg.x  && arg.y ){
+      this._velocity = arg;
+    }  
   }
   get rotation() {
     return this._rotation;
