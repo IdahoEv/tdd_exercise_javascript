@@ -9,7 +9,7 @@ export default class Sprite {
     return this._position;
   }
   set position(arg) {
-    if(typeof arg == "object" && arg.x  && arg.y ){
+    if(this.isValidVectorWithXY(arg) ){
       this._position = arg;
     }
   }
@@ -17,15 +17,24 @@ export default class Sprite {
     return this._velocity;
   }
   set velocity(arg) {
-    if(typeof arg == "object" && arg.x  && arg.y ){
+    if(this.isValidVectorWithXY(arg) ){
       this._velocity = arg;
-    }  
+    }
+  }
+  isValidVectorWithXY(arg){
+    return typeof arg == "object"
+      && arg.x
+      && arg.y
+      && typeof arg.x == "number"
+      && typeof arg.y == "number";
   }
   get rotation() {
     return this._rotation;
   }
   set rotation(arg) {
-    this._rotation = arg;
+    if (typeof(arg) == "number") {
+      this._rotation = arg;
+    }
   }
 
 

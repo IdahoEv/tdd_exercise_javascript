@@ -39,10 +39,21 @@ describe('Sprite', () => {
       expect(sprite.velocity.x).to.eql(0.0);
       expect(sprite.velocity.y).to.eql(0.0);
     });
+    it('doesn\'t set the velocity when the arguments aren\'t number', () => {
+      const sprite = new Sprite();
+      sprite.velocity = { x: 1, y: "hello"};
+      expect(sprite.velocity.x).to.eql(0.0);
+      expect(sprite.velocity.y).to.eql(0.0);
+    });
     it('sets the rotation when the argument is valid', () => {
       const sprite = new Sprite();
       sprite.rotation = 3.5;
       expect(sprite.rotation).to.eql(3.5);
+    });
+    it('doesn\'t set the rotation when the argument is in valid', () => {
+      const sprite = new Sprite();
+      sprite.rotation = "hello";
+      expect(sprite.rotation).to.eql(0.0);
     });
   });
 
